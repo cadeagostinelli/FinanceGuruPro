@@ -12,7 +12,6 @@ import sqlite3
 from contextlib import contextmanager
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey_change_in_production')
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
