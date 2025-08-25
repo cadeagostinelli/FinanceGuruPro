@@ -48,6 +48,7 @@ python main.py
 
 
 **Incomplete Portions**
+
 Dashboard header buttons still need to be properly linked
 Excel template needs to be provided if users prefer to use that
 Further analysis provided by the script should be provided after analyzing the user's expenses
