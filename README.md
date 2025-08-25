@@ -35,3 +35,13 @@ Secure file handling and data validation
 **Installation**
 bashpip install -r requirements.txt
 python main.py
+
+
+**Home Page**
+![Alt text](dashboard.png)
+
+**Analysis**
+![Alt text](Analytics.png)
+
+**Recent Transactions**
+![Alt text](Recent.png)
