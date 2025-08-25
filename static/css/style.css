@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* General header format */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: x-large;
+    color: white;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+/* All of our navigation css to properly add animation */
+.navigation a {
+    position: relative;
+    font-size: medium;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: darkslateblue;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+/* General styling of login button with hover transition */
+.navigation .btnLogin-popup {
+    width: 120px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid darkslateblue;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: darkslateblue;
+    color: whitesmoke;
+}
+
+.about a {
+    position: relative;
+    font-size: medium;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.about a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: darkslateblue;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.about a:hover::after {
+    transform: scaleX(1);
+}
+
+body {
+    margin-top: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.tab-content img {
+    border-radius: 10px;
+    max-height: 400px;
+    width: 100%;
+}
+
+.alert {
+    margin-top: 1rem;
+}
+
+
+img {
+    width: 800px;
+    border-radius: 10px;
+    float: left;
+    margin-right: 10px;
+}
+
+
+body.about-page {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+nav.about {
+    background-color: blueviolet;
+    color: white;
+    text-align: right;
+    padding: 10px;
+}
+
+nav.about a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Make the site responsive */
+@media screen and (max-width: 600px) {
+    nav.about {
+        text-align: center;
+    }
+
+    nav.about a {
+        display: block;
+        margin: 5px 0;
+    }
+}

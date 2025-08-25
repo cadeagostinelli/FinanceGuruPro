@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Guru</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="about-page"> <!-- Use a class to differentiate this page -->
+    <header> <!-- Use a class for this header -->
+        <h2>Finance Guru</h3>
+            <nav class="navigation">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+                <button class="btnLogin-popup">Login</button>
+            </nav>
+    </header>
+
+    <main> <!-- About description -->
+        <h2>Finance Guru's Goal</h2>
+        <p>Finance Guru aims to make financing simple and help the average person organize their financial data. Our
+            website allows users to easily input their income, expenses, and portfolio in a user-friendly format. With
+            this data, we organize and display valuable information and provide advice on managing finances effectively.
+        </p>
+    </main>
+</body>
+
+</html>

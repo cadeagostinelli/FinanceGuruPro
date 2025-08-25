@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - FinanceGuru Pro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .analytics-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Dashboard
+            </a>
+            <h1>Financial Analytics</h1>
+            <p>Detailed insights into your financial patterns</p>
+        </div>
+
+        <div class="analytics-grid">
+            <div class="analytics-card">
+                <h2 class="card-title">
+                    <i class="fas fa-chart-line"></i>
+                    Overview Statistics
+                </h2>
+                <div class="metric">
+                    <span class="metric-label">Total Transactions</span>
+                    <span class="metric-value">{{ data.total_transactions or 0 }}</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Average Transaction</span>
+                    <span class="metric-value">${{ "%.2f"|format(data.avg_transaction or 0) }}</span>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <h2 class="card-title">
+                    <i class="fas fa-arrow-trend-up"></i>
+                    Top Income Sources
+                </h2>
+                {% if data.top_income %}
+                    {% for source, amount in data.top_income.items() %}
+                    <div class="metric">
+                        <span class="metric-label">{{ source }}</span>
+                        <span class="metric-value">${{ "%.2f"|format(amount) }}</span>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="no-data">No income data available</div>
+                {% endif %}
+            </div>
+
+            <div class="analytics-card">
+                <h2 class="card-title">
+                    <i class="fas fa-arrow-trend-down"></i>
+                    Top Expenses
+                </h2>
+                {% if data.top_expenses %}
+                    {% for source, amount in data.top_expenses.items() %}
+                    <div class="metric">
+                        <span class="metric-label">{{ source }}</span>
+                        <span class="metric-value">${{ "%.2f"|format(amount) }}</span>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="no-data">No expense data available</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
